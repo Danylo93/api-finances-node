@@ -1,21 +1,14 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "src/index.ts",
-        "use": "@vercel/node",
-        "config": {
-          "zero-config": true
-        }
+    "functions": {
+      "api/**/*.ts": {
+        "maxDuration": 60
       }
-    ],
+    },
     "builds": [
       {
         "src": "src/index.ts",
-        "use": "@vercel/node",
-        "config": {
-          "zero-config": true
-        }
+        "use": "@vercel/node"
       }
     ],
     "buildCommand": "npm run prisma:generate && npm run build",
