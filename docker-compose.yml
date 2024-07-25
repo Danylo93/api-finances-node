@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: financesapp
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: danylo93
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:danylo93@db:5432/financesapp?schema=public
+    ports:
+      - "3000:3000"
