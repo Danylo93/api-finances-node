@@ -4,9 +4,9 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "prisma generate && tsc",
+    "build": "tsc",
     "start": "node dist/index.js",
-    "vercel-build":"npx prisma migrate deploy",
+    "vercel-build": "npm run prisma:generate && npm run prisma:migrate && tsc",
     "lint": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy"
