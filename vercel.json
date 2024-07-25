@@ -9,12 +9,21 @@
         }
       }
     ],
+    "builds": [
+      {
+        "src": "src/index.ts",
+        "use": "@vercel/node",
+        "config": {
+          "zero-config": true
+        }
+      }
+    ],
+    "buildCommand": "npm run prisma:generate && npm run build",
     "routes": [
       {
         "src": "/(.*)",
         "dest": "/src/index.ts"
       }
-    ],
-    "buildCommand": "npm run prisma:generate && npm run build"
+    ]
   }
   
